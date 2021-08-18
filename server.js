@@ -5,7 +5,6 @@ const session=require("express-session");
 const MongoDbStore=require('connect-mongo');
 const dotenv=require('dotenv');
 const cors=require('cors');
-//const User=require('./models/User');
 const bcrypt=require('bcrypt');
 dotenv.config({path:'./config.env'});
 
