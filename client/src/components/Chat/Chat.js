@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const ENDPOINT='http://localhost:8080/';
+const ENDPOINT='/';
 
 //const socket=io(ENDPOINT,{transports:['websocket']});
 

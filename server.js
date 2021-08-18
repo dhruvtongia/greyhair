@@ -41,10 +41,10 @@ connection.once('open',()=>{
 
 //-----------middlewares--------------//
 app.use(express.urlencoded({extended:true}));
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials:true,
-}));
+// app.use(cors({
+//     origin: "http://localhost:3000",
+//     credentials:true,
+// }));
 app.use(express.json());
 
 //session store
@@ -75,20 +75,20 @@ app.use(passport.session());
 
 // routes
 const authRoutes=require('./routes/authRoutes');
-app.use(authRoutes);
-app.get('/',(req,res)=>{
+app.use('/api',authRoutes);
+app.get('/api/',(req,res)=>{
 
     res.status(200).json({user:req.user});
 })
 
 //socket
-//const io=require('socket.io')(server);
-const io=require('socket.io')(server,{
-    cors: {
-      origin: "http://localhost:3000",
-      credentials: true,
-    },
-  });
+const io=require('socket.io')(server);
+// const io=require('socket.io')(server,{
+//     cors: {
+//       origin: "http://localhost:3000",
+//       credentials: true,
+//     },
+//   });
 
 io.on('connection',(socket)=>{
     //console.log('connected...');
@@ -118,11 +118,12 @@ if(process.env.NODE_ENV==="production")
 {
     
     const path=require("path");
-    app.use(express.static(path.join(__dirname, '/client/build')))
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/build'))
-    })
+    app.use(express.static(path.join(__dirname, '/client/build')));
     app.get("*",(req,res)=>{
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     });
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build'))
+    });
+    
 }
