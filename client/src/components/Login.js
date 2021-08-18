@@ -45,7 +45,7 @@ export default function Login({setuserLoggedIn}) {
   const submitForm=async(e)=>{
     e.preventDefault();
     
-    const res=await fetch(baseUrl+'/login', {
+    const res=await fetch(baseUrl+'login', {
 
       method:'post',
       headers: {

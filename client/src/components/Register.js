@@ -60,8 +60,8 @@ export default function Register() {
 
   const register=async(e)=>{
     e.preventDefault();
-    console.log("in",name,username,password,role);
-    const res=await fetch(baseUrl+'/register', {
+    //console.log("in",name,username,password,role);
+    const res=await fetch(baseUrl+'register', {
 
       method:'post',
       headers: {

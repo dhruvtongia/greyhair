@@ -15,7 +15,7 @@ function App() {
   
 
   useEffect(() => {
-    fetch(baseUrl+'/',{
+    fetch(baseUrl,{
         method: 'GET',
         headers: {
             "Content-type": "application/json; charset=UTF-8"

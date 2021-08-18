@@ -30,7 +30,7 @@ export default function Navbar({userLoggedIn,setuserLoggedIn}) {
 
    const logout=()=>{
 
-        fetch(baseUrl+'/logout',{
+        fetch(baseUrl+'logout',{
 
             method:'post',
             credentials:'include'

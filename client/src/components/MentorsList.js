@@ -22,7 +22,7 @@ const MentorsList = () => {
     const [list, setlist] = useState();
     useEffect(() => {
         
-        fetch(baseUrl+'/list',{
+        fetch(baseUrl+'list',{
         method: 'GET',
         headers: {
           //Accept:"application/json",
